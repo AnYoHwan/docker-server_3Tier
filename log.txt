@@ -1,0 +1,109 @@
+#1 [docker-server/nginx internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [docker-server/nginx internal] load build definition from Dockerfile
+#2 transferring dockerfile: 32B 0.0s done
+#2 DONE 0.1s
+
+#3 [docker-server/django internal] load .dockerignore
+#3 transferring context: 2B 0.0s done
+#3 DONE 0.1s
+
+#4 [docker-server/django internal] load build definition from Dockerfile
+#4 transferring dockerfile: 392B 0.1s done
+#4 DONE 0.1s
+
+#5 [docker-server/django internal] load metadata for docker.io/library/python:3.6.7
+#5 DONE 1.8s
+
+#6 [docker-server/nginx internal] load metadata for docker.io/library/nginx:latest
+#6 DONE 1.9s
+
+#7 [docker-server/nginx 1/4] FROM docker.io/library/nginx:latest@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f
+#7 DONE 0.0s
+
+#8 [docker-server/nginx internal] load build context
+#8 transferring context: 66B done
+#8 DONE 0.0s
+
+#9 [docker-server/nginx 3/4] COPY nginx-app.conf /etc/nginx/sites-available/
+#9 CACHED
+
+#10 [docker-server/nginx 2/4] COPY nginx.conf /etc/nginx/nginx.conf
+#10 CACHED
+
+#11 [docker-server/nginx 4/4] RUN mkdir -p /etc/nginx/sites-enabled/    && ln -s /etc/nginx/sites-available/nginx-app.conf /etc/nginx/sites-enabled/
+#11 CACHED
+
+#12 [docker-server/django 1/8] FROM docker.io/library/python:3.6.7@sha256:4ea1013f8409b41712f7a1c10d7603969068fab4422cef58e6446ae5ee81fe28
+#12 DONE 0.0s
+
+#13 [docker-server/django internal] load build context
+#13 transferring context: 20.93kB done
+#13 DONE 0.0s
+
+#14 [docker-server/nginx] exporting to image
+#14 exporting layers done
+#14 writing image sha256:446e06e9b089791c14dc41f10ac086ce5ab01b2bb48988de7fba72f752b51893 done
+#14 naming to docker.io/docker-server/nginx done
+#14 DONE 0.1s
+
+#15 [docker-server/django 3/8] RUN apt-get -y install vim
+#15 CACHED
+
+#16 [docker-server/django 2/8] RUN apt-get -y update
+#16 CACHED
+
+#17 [docker-server/django 4/8] RUN mkdir /srv/docker-server
+#17 CACHED
+
+#18 [docker-server/django 5/8] ADD . /srv/docker-server
+#18 DONE 0.1s
+
+#19 [docker-server/django 6/8] WORKDIR /srv/docker-server
+#19 DONE 0.1s
+
+#20 [docker-server/django 7/8] RUN pip install --upgrade pip
+#20 1.863 Collecting pip
+#20 2.299   Downloading https://files.pythonhosted.org/packages/a4/6d/6463d49a933f547439d6b5b98b46af8742cc03ae83543e4d7688c2420f8b/pip-21.3.1-py3-none-any.whl (1.7MB)
+#20 2.704 Installing collected packages: pip
+#20 2.704   Found existing installation: pip 18.1
+#20 2.816     Uninstalling pip-18.1:
+#20 4.134       Successfully uninstalled pip-18.1
+#20 5.076 Successfully installed pip-21.3.1
+#20 DONE 5.6s
+
+#21 [docker-server/django 8/8] RUN pip install -r requirements.txt
+#21 1.143 Collecting asgiref==3.2.7
+#21 1.430   Downloading asgiref-3.2.7-py2.py3-none-any.whl (19 kB)
+#21 1.763 Collecting Django==3.0.5
+#21 1.820   Downloading Django-3.0.5-py3-none-any.whl (7.5 MB)
+#21 2.553 Collecting pytz==2019.3
+#21 2.622   Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+#21 2.735 Collecting sqlparse==0.3.1
+#21 2.791   Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+#21 2.884 Collecting uwsgi
+#21 2.942   Downloading uwsgi-2.0.21.tar.gz (808 kB)
+#21 3.153   Preparing metadata (setup.py): started
+#21 3.576   Preparing metadata (setup.py): finished with status 'done'
+#21 3.799 Collecting cx_Oracle==8.3
+#21 3.858   Downloading cx_Oracle-8.3.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (858 kB)
+#21 3.912 Building wheels for collected packages: uwsgi
+#21 3.913   Building wheel for uwsgi (setup.py): started
+#21 35.91   Building wheel for uwsgi (setup.py): finished with status 'done'
+#21 35.92   Created wheel for uwsgi: filename=uWSGI-2.0.21-cp36-cp36m-linux_x86_64.whl size=596419 sha256=224db000cf23b86cbbfa351665f8e83cea53471b2dff46867ad88716ae5c77c5
+#21 35.92   Stored in directory: /root/.cache/pip/wheels/2a/3a/89/aae93fe937e233d8ee0dc3fcf999715393d708a84c05fd1cb5
+#21 35.92 Successfully built uwsgi
+#21 35.98 Installing collected packages: sqlparse, pytz, asgiref, uwsgi, Django, cx-Oracle
+#21 38.11 Successfully installed Django-3.0.5 asgiref-3.2.7 cx-Oracle-8.3.0 pytz-2019.3 sqlparse-0.3.1 uwsgi-2.0.21
+#21 38.11 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#21 DONE 38.9s
+
+#14 [docker-server/django] exporting to image
+#14 exporting layers
+#14 exporting layers 5.4s done
+#14 writing image sha256:3e47a302643135be3451a5f2a8e11b8d2a3b5cc5bd487dff4b9482d65e743703
+#14 writing image sha256:3e47a302643135be3451a5f2a8e11b8d2a3b5cc5bd487dff4b9482d65e743703 done
+#14 naming to docker.io/docker-server/django done
+#14 DONE 5.5s
